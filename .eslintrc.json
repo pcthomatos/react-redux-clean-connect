@@ -1,0 +1,19 @@
+{
+  "extends": ["xo", "plugin:prettier/recommended"],
+  "env": {
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "semi": false,
+        "printWidth": 90,
+        "trailingComma": "all",
+        "arrowParens": "always"
+      }
+    ]
+  }
+}

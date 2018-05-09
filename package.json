@@ -1,0 +1,71 @@
+{
+  "name": "react-redux-clean-connect",
+  "version": "1.1.1",
+  "description": "Helper for defining constants",
+  "main": "lib/index.js",
+  "typings": "index.d.ts",
+  "author":
+    "PC Thomatos <pthoma23@hotmail.com> (https://github.com/pcthomatos)",
+  "files": ["lib", "index.d.ts"],
+  "keywords": ["redux", "react", "connect", "boilerplate", "helper"],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "coveralls": "^3.0.0",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-xo": "^0.20.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-watch": "^3.1.4",
+    "husky": "^0.14.3",
+    "jest": "^22.0.6",
+    "lint-staged": "^6.1.1",
+    "nsp": "^2.8.0",
+    "react": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2"
+  },
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
+  },
+  "scripts": {
+    "build:dev":
+      "npm run clean && npm run build:commonjs && webpack --mode=development",
+    "build":
+      "npm run clean && npm run build:commonjs && webpack --mode=production",
+    "build:commonjs": "babel src --out-dir lib --ignore *-test.js",
+    "clean": "rimraf lib",
+    "lint": "esw src webpack.config --color",
+    "prepare": "npm test && npm run build",
+    "prepublishOnly": "nsp check",
+    "pretest": "eslint ./src",
+    "precommit": "lint-staged",
+    "test": "npm run pretest && NODE_ENV=test jest"
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "git add"],
+    "*.json": ["prettier --write", "git add"]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pcthomatos/react-redux-clean-connect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pcthomatos/react-redux-clean-connect/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@types/react-redux": "^6.0.0"
+  }
+}
