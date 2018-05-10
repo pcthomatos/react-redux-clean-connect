@@ -16,7 +16,7 @@ import * as React from 'react'
 import { cleanConnect } from 'react-redux-clean-connect'
 import { getByUUID, updateSearchCriteria } from '../state/actions/userActions'
 
-const mapStateAndDispatchToProps: MapStateAndDispatchToProps = (propsFromState, ownProps) => {
+const mapStateAndDispatchToProps = (propsFromState, ownProps) => {
   const partialState = propsFromState.partialState
 
   return {
@@ -41,7 +41,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { getByUUID, updateSearchCriteria } from '../state/actions/userActions'
 
-const mapStateToProps = (store: any, ownProps: any) => {
+const mapStateToProps = (store, ownProps) => {
   return {
     ...ownProps,
     errorMessage: partialState.error.message,
@@ -55,7 +55,7 @@ const mapDispatchToProps = {
   updateSearchCriteria
 }
 
-const mergeProps: any = (propsFromState, propsFromDispatch, ownProps) => {
+const mergeProps = (propsFromState, propsFromDispatch, ownProps) => {
   const partialState = propsFromState.partialState
 
   return {
