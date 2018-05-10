@@ -32,7 +32,8 @@
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "webpack": "^4.8.1",
-    "webpack-cli": "^2.1.3"
+    "webpack-cli": "^2.1.3",
+    "@types/react-redux": "^6.0.0"
   },
   "engines": {
     "npm": ">= 4.0.0"
@@ -68,8 +69,5 @@
   "bugs": {
     "url": "https://github.com/pcthomatos/react-redux-clean-connect/issues"
   },
-  "license": "MIT",
-  "dependencies": {
-    "@types/react-redux": "^6.0.0"
-  }
+  "license": "MIT"
 }
