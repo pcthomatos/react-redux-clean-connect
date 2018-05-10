@@ -22,18 +22,15 @@
     "eslint-config-xo": "^0.22.1",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
-    "eslint-watch": "^3.1.4",
     "husky": "^0.14.3",
     "jest": "^22.0.6",
     "lint-staged": "^7.1.0",
-    "nsp": "^3.2.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "webpack": "^4.8.1",
-    "webpack-cli": "^2.1.3",
-    "@types/react-redux": "^6.0.0"
+    "webpack-cli": "^2.1.3"
   },
   "engines": {
     "npm": ">= 4.0.0"
@@ -53,7 +50,6 @@
     "clean": "rimraf lib",
     "lint": "esw src webpack.config --color",
     "prepare": "npm test && npm run build",
-    "prepublishOnly": "nsp check",
     "pretest": "eslint ./src",
     "precommit": "lint-staged",
     "test": "npm run pretest && NODE_ENV=test jest"
