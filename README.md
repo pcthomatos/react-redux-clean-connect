@@ -10,7 +10,64 @@ $ npm install --save react-redux-clean-connect
 ## Usage
 
 ```js
+// Connecting can look like this: ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
 
+import * as React from 'react'
+import { cleanConnect } from 'react-redux-clean-connect'
+import { getByUUID, updateSearchCriteria } from '../state/actions/userActions'
+
+const mapStateAndDispatchToProps: MapStateAndDispatchToProps = (propsFromState, ownProps) => {
+  const partialState = propsFromState.partialState
+
+  return {
+    // state props
+    errorMessage: partialState.error.message,
+    username: partialState.searchCriteria.username,
+    usersObj: partialState.usersObj,
+
+    // dispatch props
+    getByUUID: () => getByUUID(partialState.searchCriteria),
+    updateSearchCriteria,
+  }
+}
+
+export default cleanConnect(mapStateAndDispatchToProps)(
+    class UserList extends React.Component {
+
+
+// Instead of looking like this: ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+
+import * as React from 'react'
+import { connect } from 'react-redux'
+import { getByUUID, updateSearchCriteria } from '../state/actions/userActions'
+
+const mapStateToProps = (store: any, ownProps: any) => {
+  return {
+    ...ownProps,
+    errorMessage: partialState.error.message,
+    username: partialState.searchCriteria.username,
+    usersObj: partialState.usersObj,
+  }
+}
+
+const mapDispatchToProps = {
+  getByUUID,
+  updateSearchCriteria
+}
+
+const mergeProps: any = (propsFromState, propsFromDispatch, ownProps) => {
+  const partialState = propsFromState.partialState
+
+  return {
+    ...ownProps,
+    ...propsFromState
+    ...propsFromDispatch
+    getByUUID: () => propsFromDispatch.getByUUID(partialState.searchCriteria),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+  class Loyalty extends React.Component<any, any> {
 
 ```
 ## License

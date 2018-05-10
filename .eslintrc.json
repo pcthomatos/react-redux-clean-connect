@@ -1,5 +1,5 @@
 {
-  "extends": ["xo", "plugin:prettier/recommended"],
+  "extends": ["xo", "plugin:prettier/recommended", "plugin:react/recommended"],
   "env": {
     "jest": true,
     "node": true
